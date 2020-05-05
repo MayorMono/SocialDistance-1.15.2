@@ -9,13 +9,17 @@ public class Reporter implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender arg0, Command arg1, String arg2, String[] arg3) {
-		if(Main.enabled && arg0.isOp()) {
-			Bukkit.broadcastMessage("There is currently a pandemic");
-		} else if(arg0.isOp()) {
-			Bukkit.broadcastMessage("No pandemic is occuring");
+		if(arg3.length == 0) {
+			if(Main.enabled && arg0.isOp()) {
+				Bukkit.broadcastMessage("There is currently a pandemic. The danger radius is " + Main.radius);
+				return true;
+			} else if(arg0.isOp()) {
+				Bukkit.broadcastMessage("No pandemic is occuring");
+				return true;
+			}
 		}
 		
-		return true;
+		return false;
 	}
 
 }
