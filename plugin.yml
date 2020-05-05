@@ -1,0 +1,17 @@
+name: SocialDistance
+main: com.meeku.socialDistance.Main
+version: 1.0
+api-version: 1.13
+commands:
+   enable:
+      description: initiate a pandemic
+      usage: /enable
+   disable:
+      description: remove the pandemic
+      usage: /disable
+   status:
+      description: check the status of the pandemic
+      usage: /status
+   setRadius:
+      description: sets the danger radius in range [1,10]
+      usage: /setradius [radius]
