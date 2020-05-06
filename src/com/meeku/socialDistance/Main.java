@@ -16,7 +16,8 @@ import org.bukkit.entity.Player;
 
 public class Main extends JavaPlugin {
 	public static boolean enabled = false;
-	public static PotionEffect cVirus = new PotionEffect(PotionEffectType.WITHER, 100, 2);
+	public static int duration = 5;
+	public static int amplifier = 2;
 	public static int radius = 2;
 	
 	@Override
@@ -25,12 +26,15 @@ public class Main extends JavaPlugin {
 		this.getCommand("disable").setExecutor(new Disabler());
 		this.getCommand("status").setExecutor(new Reporter());
 		this.getCommand("setradius").setExecutor(new RadiusSetter());
+		this.getCommand("setduration").setExecutor(new DurationSetter());
+		this.getCommand("setamplifier").setExecutor(new AmplifierSetter());
 		
 		BukkitScheduler scheduler = getServer().getScheduler();
 		scheduler.scheduleSyncRepeatingTask(this, new Runnable() {
 			@Override
 			public void run() {
 				if(enabled) {
+					PotionEffect virus = new PotionEffect(PotionEffectType.WITHER, duration * 20, amplifier);
 					for(Player p1 : Bukkit.getOnlinePlayers()) {
 						List<Entity> near = p1.getNearbyEntities(radius,radius,radius);
 						for(Entity e : near) {
@@ -41,8 +45,8 @@ public class Main extends JavaPlugin {
 								Location p2L = p2.getLocation();
 								
 								if(p1L.distanceSquared(p2L) < (radius * radius)) {
-									p1.addPotionEffect(cVirus);
-									p2.addPotionEffect(cVirus);
+									p1.addPotionEffect(virus);
+									p2.addPotionEffect(virus);
 								}	
 								
 							} else if(e instanceof Mob) {
@@ -50,7 +54,7 @@ public class Main extends JavaPlugin {
 								Location eL = e.getLocation();
 								
 								if(p1L.distanceSquared(eL) < (radius * radius)) {
-									p1.addPotionEffect(cVirus);
+									p1.addPotionEffect(virus);
 								}		
 							}
 						}
