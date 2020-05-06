@@ -1,1 +1,1 @@
-# SocialDistance for Minecraft Spigot 1.15.2
+# SocialDistance for Minecraft Spigot/Bukkit 1.15.2
