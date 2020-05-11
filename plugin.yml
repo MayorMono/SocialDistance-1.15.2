@@ -1,23 +1,26 @@
 name: SocialDistance
-main: com.meeku.socialDistance.Main
+main: com.meeku.socialdistance.Main
 version: 1.0
 api-version: 1.13
 commands:
-   enable:
+   penable:
       description: initiates a pandemic
-      usage: /enable
-   disable:
+      usage: /penable
+   pdisable:
       description: removes the pandemic
-      usage: /disable
-   status:
+      usage: /pdisable
+   pstatus:
       description: checks the status of the pandemic
-      usage: /status
-   setradius:
-      description: sets danger radius in range [1,10]
-      usage: /setradius <radius>
-   setduration:
-      description: sets duration in range [1,60]
-      usage: /setduration <seconds>
-   setamplifier:
+      usage: /pstatus
+   psetradius:
+      description: sets danger radius in range [1,127]
+      usage: /psetradius <radius>
+   psetduration:
+      description: sets duration in range [1,1200]
+      usage: /psetduration <seconds>
+   psetamplifier:
       description: sets amplifier in range [0,5]
-      usage: /setamplifier <amplifier>
+      usage: /psetamplifier <amplifier>
+   ptogglemobs:
+      description: toggles infection of mobs
+      usage: /ptogglemobs
