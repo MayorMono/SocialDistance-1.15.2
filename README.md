@@ -1,5 +1,5 @@
 # SocialDistance for Minecraft Bukkit 1.15.2
-A plugin that forces players to practice social distance amongst themselves, as well as animals and monsters
+A plugin that forces players to practice social distance amongst themselves, as well as animals and monsters. When a player violates social distancing rules, they will be given the Wither potion effect with a set amplifier for a set amount of time.
 
 **Commands**
 * /penable: initiates a pandemic
